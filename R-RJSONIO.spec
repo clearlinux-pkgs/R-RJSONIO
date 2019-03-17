@@ -4,7 +4,7 @@
 #
 Name     : R-RJSONIO
 Version  : 1.3.1.1
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.1.tar.gz
 Summary  : Serialize R Objects to JSON, JavaScript Object Notation
@@ -14,17 +14,8 @@ Requires: R-RJSONIO-lib = %{version}-%{release}
 BuildRequires : buildreq-R
 
 %description
-data in Javascript object notation (JSON) format.
-  This allows R objects to be inserted into Javascript/ECMAScript/ActionScript code
-  and allows R programmers to read and convert JSON content to R objects.
-  This is an alternative to rjson package. Originally, that was too slow for converting large R objects to JSON
-  and was not extensible.  rjson's performance is now similar to this package, and perhaps slightly faster in some cases.
-  This package uses methods and is readily extensible by defining methods for different classes, 
-  vectorized operations, and C code and callbacks to R functions for deserializing JSON objects to R. 
-  The two packages intentionally share the same basic interface. This package (RJSONIO) has many additional
-  options to allow customizing the generation and processing of JSON content.
-  This package uses libjson rather than implementing yet another JSON parser. The aim is to support
-  other general projects by building on their work, providing feedback and benefit from their ongoing development.
+Include various scripts included by DTL in the package to copy over
+libjson sources.
 
 %package lib
 Summary: lib components for the R-RJSONIO package.
@@ -42,10 +33,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542239000
+export SOURCE_DATE_EPOCH=1552785815
 
 %install
-export SOURCE_DATE_EPOCH=1542239000
+export SOURCE_DATE_EPOCH=1552785815
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -81,8 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library RJSONIO|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  RJSONIO || :
 
 
 %files
@@ -120,7 +110,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/RJSONIO/help/paths.rds
 /usr/lib64/R/library/RJSONIO/html/00Index.html
 /usr/lib64/R/library/RJSONIO/html/R.css
-/usr/lib64/R/library/RJSONIO/libs/symbols.rds
 /usr/lib64/R/library/RJSONIO/sampleData/array.json
 /usr/lib64/R/library/RJSONIO/sampleData/array2.json
 /usr/lib64/R/library/RJSONIO/sampleData/array3.json
@@ -140,9 +129,30 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/RJSONIO/sampleData/usaColors.as
 /usr/lib64/R/library/RJSONIO/sampleData/usaPolygons.as
 /usr/lib64/R/library/RJSONIO/sampleData/widget.json
+/usr/lib64/R/library/RJSONIO/tests/array.R
+/usr/lib64/R/library/RJSONIO/tests/bigInt.R
+/usr/lib64/R/library/RJSONIO/tests/charNULL.R
+/usr/lib64/R/library/RJSONIO/tests/con1.R
+/usr/lib64/R/library/RJSONIO/tests/con2.R
+/usr/lib64/R/library/RJSONIO/tests/containers.R
+/usr/lib64/R/library/RJSONIO/tests/empty.R
+/usr/lib64/R/library/RJSONIO/tests/encoding.R
+/usr/lib64/R/library/RJSONIO/tests/exp.R
+/usr/lib64/R/library/RJSONIO/tests/flat.json
+/usr/lib64/R/library/RJSONIO/tests/keys.R
+/usr/lib64/R/library/RJSONIO/tests/nested.json
+/usr/lib64/R/library/RJSONIO/tests/newsUTF8.rda
+/usr/lib64/R/library/RJSONIO/tests/performance.R
+/usr/lib64/R/library/RJSONIO/tests/prealloc.R
+/usr/lib64/R/library/RJSONIO/tests/s4.R
+/usr/lib64/R/library/RJSONIO/tests/scalarCollapse.R
+/usr/lib64/R/library/RJSONIO/tests/serialize.R
+/usr/lib64/R/library/RJSONIO/tests/simple.R
+/usr/lib64/R/library/RJSONIO/tests/simplify.R
+/usr/lib64/R/library/RJSONIO/tests/stringFun.R
+/usr/lib64/R/library/RJSONIO/tests/toJSON.R
+/usr/lib64/R/library/RJSONIO/tests/utf8.R
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/RJSONIO/libs/RJSONIO.so
-/usr/lib64/R/library/RJSONIO/libs/RJSONIO.so.avx2
-/usr/lib64/R/library/RJSONIO/libs/RJSONIO.so.avx512
