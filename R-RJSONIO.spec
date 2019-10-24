@@ -4,7 +4,7 @@
 #
 Name     : R-RJSONIO
 Version  : 1.3.1.3
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.3.tar.gz
 Summary  : Serialize R Objects to JSON, JavaScript Object Notation
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause
 Requires: R-RJSONIO-lib = %{version}-%{release}
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 Include various scripts included by DTL in the package to copy over
@@ -33,10 +34,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570130103
+export SOURCE_DATE_EPOCH=1571891286
 
 %install
-export SOURCE_DATE_EPOCH=1570130103
+export SOURCE_DATE_EPOCH=1571891286
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
