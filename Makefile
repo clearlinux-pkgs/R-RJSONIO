@@ -1,5 +1,5 @@
 PKG_NAME := R-RJSONIO
-URL = https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.3.tar.gz
+URL = https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.4.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
