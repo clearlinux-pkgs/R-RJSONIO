@@ -4,7 +4,7 @@
 #
 Name     : R-RJSONIO
 Version  : 1.3.1.4
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.4.tar.gz
 Summary  : Serialize R Objects to JSON, JavaScript Object Notation
