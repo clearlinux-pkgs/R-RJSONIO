@@ -4,7 +4,7 @@
 #
 Name     : R-RJSONIO
 Version  : 1.3.1.4
-Release  : 29
+Release  : 30
 URL      : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.4.tar.gz
 Summary  : Serialize R Objects to JSON, JavaScript Object Notation
@@ -14,8 +14,17 @@ Requires: R-RJSONIO-lib = %{version}-%{release}
 BuildRequires : buildreq-R
 
 %description
-Include various scripts included by DTL in the package to copy over
-libjson sources.
+data in Javascript object notation (JSON) format.
+  This allows R objects to be inserted into Javascript/ECMAScript/ActionScript code
+  and allows R programmers to read and convert JSON content to R objects.
+  This is an alternative to rjson package. Originally, that was too slow for converting large R objects to JSON
+  and was not extensible.  rjson's performance is now similar to this package, and perhaps slightly faster in some cases.
+  This package uses methods and is readily extensible by defining methods for different classes, 
+  vectorized operations, and C code and callbacks to R functions for deserializing JSON objects to R. 
+  The two packages intentionally share the same basic interface. This package (RJSONIO) has many additional
+  options to allow customizing the generation and processing of JSON content.
+  This package uses libjson rather than implementing yet another JSON parser. The aim is to support
+  other general projects by building on their work, providing feedback and benefit from their ongoing development.
 
 %package lib
 Summary: lib components for the R-RJSONIO package.
@@ -27,21 +36,22 @@ lib components for the R-RJSONIO package.
 
 %prep
 %setup -q -c -n RJSONIO
+cd %{_builddir}/RJSONIO
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1579111463
+export SOURCE_DATE_EPOCH=1589523917
 
 %install
-export SOURCE_DATE_EPOCH=1579111463
+export SOURCE_DATE_EPOCH=1589523917
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
