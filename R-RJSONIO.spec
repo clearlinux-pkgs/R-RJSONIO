@@ -4,7 +4,7 @@
 #
 Name     : R-RJSONIO
 Version  : 1.3.1.6
-Release  : 46
+Release  : 47
 URL      : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.6.tar.gz
 Summary  : Serialize R Objects to JSON, JavaScript Object Notation
@@ -43,10 +43,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1638695907
+export SOURCE_DATE_EPOCH=1641097110
 
 %install
-export SOURCE_DATE_EPOCH=1638695907
+export SOURCE_DATE_EPOCH=1641097110
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -166,4 +166,5 @@ R CMD check --no-manual --no-examples --no-codoc RJSONIO || :
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/RJSONIO/libs/RJSONIO.so
+/usr/lib64/R/library/RJSONIO/libs/RJSONIO.so.avx2
 /usr/lib64/R/library/RJSONIO/libs/RJSONIO.so.avx512
