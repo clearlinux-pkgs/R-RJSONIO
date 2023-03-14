@@ -4,7 +4,7 @@
 #
 Name     : R-RJSONIO
 Version  : 1.3.1.8
-Release  : 54
+Release  : 55
 URL      : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.8.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/RJSONIO_1.3-1.8.tar.gz
 Summary  : Serialize R Objects to JSON, JavaScript Object Notation
@@ -13,9 +13,6 @@ License  : BSD-2-Clause BSD-3-Clause
 Requires: R-RJSONIO-lib = %{version}-%{release}
 Requires: R-RJSONIO-license = %{version}-%{release}
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 data in Javascript object notation (JSON) format.
@@ -56,10 +53,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675185067
+export SOURCE_DATE_EPOCH=1678836581
 
 %install
-export SOURCE_DATE_EPOCH=1675185067
+export SOURCE_DATE_EPOCH=1678836581
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-RJSONIO
 cp %{_builddir}/RJSONIO/src/libjson/License.txt %{buildroot}/usr/share/package-licenses/R-RJSONIO/99e1860a6b62d89f4fdefcc6298decb025a882ae || :
